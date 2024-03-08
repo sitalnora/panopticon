@@ -5,6 +5,8 @@ module Panopticon
         before_action :initialize_memory_watcher
         after_action :wrap_up_memory_watcher
 
+        @@warmup_request = true
+
         def initialize_memory_watcher
           @initial_memory = GetProcessMem.new.kb
           # @@leaking_data ||= []
@@ -14,8 +16,12 @@ module Panopticon
         end
 
         def wrap_up_memory_watcher
-          @final_memory = GetProcessMem.new.kb
-          write_to_temp_file(parse_text_for_tmp)
+          if @@warmup_request
+            @@warmup_request = false
+          else
+            @final_memory = GetProcessMem.new.kb
+            write_to_temp_file(parse_text_for_tmp)
+          end
         end
 
         def path_info

@@ -6,7 +6,7 @@
   </tr>
   <% @info.each do |hash_key, a_details| %>
     <tr>
-      <td style="border: 1px solid black;padding: 10px;"> <%= hash_key %> </td>
+      <td style="border: 1px solid black;padding: 10px;"> <%= link_to(hash_key, analysis_path(inquiry: hash_key.gsub('#','$'))) %> </td>
       <td style="border: 1px solid black;padding: 10px;"> <%= (a_details[:mem_usage] / a_details[:count]).to_i %> </td>
       <td style="border: 1px solid black;padding: 10px;"> <%= a_details[:max].to_i %> </td>
     </tr>

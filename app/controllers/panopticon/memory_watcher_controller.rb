@@ -21,5 +21,17 @@ module Panopticon
         end
       end
     end
+
+    def analysis
+      @info = []
+      if File.exist?('../../memtemp.txt')
+        File.readlines('../../memtemp.txt').map do |line|
+          if line.include?(params[:inquiry])
+            _, _, mem_usage = line.chomp.split('$')
+            @info << mem_usage
+          end
+        end
+      end
+    end
   end
 end

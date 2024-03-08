@@ -1,0 +1,12 @@
+<%= link_to('Back', root_path)%>
+<h3>Historical Logs</h3>
+<table>
+  <tr>
+    <th style="border: 1px solid black;padding: 10px;" >Memory Consumption (KBs)</th>
+  </tr>
+  <% @info.each do |mem_consumption| %>
+    <tr>
+      <td style="border: 1px solid black;padding: 10px;"> <%= mem_consumption %> </td>
+    </tr>
+  <% end %>
+</table>
