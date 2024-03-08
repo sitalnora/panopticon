@@ -1,0 +1,14 @@
+<table>
+  <tr >
+    <th style="border: 1px solid black;padding: 10px;">Controller & Action</th>
+    <th style="border: 1px solid black;padding: 10px;">Memory Usage Average (KBs)</th>
+    <th style="border: 1px solid black;padding: 10px;">Memory Usage Maximum (KBs)</th>
+  </tr>
+  <% @info.each do |hash_key, a_details| %>
+    <tr>
+      <td style="border: 1px solid black;padding: 10px;"> <%= hash_key %> </td>
+      <td style="border: 1px solid black;padding: 10px;"> <%= (a_details[:mem_usage] / a_details[:count]).to_i %> </td>
+      <td style="border: 1px solid black;padding: 10px;"> <%= a_details[:max].to_i %> </td>
+    </tr>
+  <% end %>
+</table>

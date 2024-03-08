@@ -1,4 +1,4 @@
 Panopticon::Engine.routes.draw do
   mount Panopticon::Engine, at: "/panopticon"
-  root to: "panopticon#index"
+  root to: "memory_watcher#index"
 end

@@ -19,7 +19,7 @@ module Panopticon
         end
 
         def path_info
-          Rails.application.routes.recognize_path(request['REQUEST_PATH'])
+          Rails.application.routes.recognize_path(request.env['REQUEST_PATH'])
         end
 
         def parse_text_for_tmp
